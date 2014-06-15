@@ -59,9 +59,29 @@
     #demo8
       %h1 {{title | uppercase}}
       %h3 {{sub_title | uppercase}}
-      %input{"v-on" => "keyup:submit | key enter"}
+      %input{"v-on" => "keyup:submit | key 13"}
 
-
-
+    #demo9
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %form
+        %p
+          %input{type: "text", "v-model" => "msg"}
+            {{msg}}
+        %p
+          %input{type: "checkbox", "v-model" => "checked"}
+            {{checked ? "yes" : "no" }}
+        %p
+          %input{type: "radio", name: "picked", value: "one", "v-model" => "picked"}
+          %input{type: "radio", name: "picked", value: "two", "v-model" => "picked"}
+            {{picked}}
+        %p
+          %select{"v-model" => "selected"}
+            %option one
+            %option two
+            %option three
+          {{selected}}
+        %p
+          data: {{$data}}
 
     %script{rel: "javascript", src: "javascripts/sample.js", type: "text/javascript"}

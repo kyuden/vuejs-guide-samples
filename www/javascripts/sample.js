@@ -1,5 +1,5 @@
 (function() {
-  var demo1, demo2, demo3, demo4, demo5, demo6, demo7;
+  var demo1, demo2, demo3, demo4, demo5, demo6, demo7, demo8, demo9;
 
   demo1 = new Vue({
     el: '#demo1',
@@ -146,11 +146,26 @@
       toggle: function(item) {
         return item.done = !item.done;
       }
-    },
+    }
+  });
+
+  demo8 = new Vue({
     el: "#demo8",
     data: {
       title: 'demo8',
       sub_title: 'The Special Key Filter'
+    }
+  });
+
+  demo9 = new Vue({
+    el: "#demo9",
+    data: {
+      title: 'demo9',
+      sub_title: 'Handring Forms',
+      msg: 'hello',
+      checked: true,
+      picked: 'two',
+      selected: 'two'
     }
   });
 

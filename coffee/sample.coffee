@@ -139,9 +139,23 @@ demo7 = new Vue
       item.done = !item.done
 
 #demo8
+demo8 = new Vue
   el: "#demo8"
   data:
     title: 'demo8'
     sub_title: 'The Special Key Filter'
+
+#demo9
+demo9 = new Vue
+  el: "#demo9"
+  data:
+    title: 'demo9'
+    sub_title: 'Handring Forms'
+    msg: 'hello'
+    checked: true
+    picked: 'two'
+    selected: 'two'
+
+
 
 
