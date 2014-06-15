@@ -39,3 +39,7 @@ build/
 
 ### Bower ###
 bower_components
+
+
+### Sass ###
+.sass-cache
