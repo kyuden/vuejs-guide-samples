@@ -1,5 +1,5 @@
 (function() {
-  var demo1, demo2, demo3, demo4, demo5;
+  var demo1, demo2, demo3, demo4, demo5, demo6, demo7;
 
   demo1 = new Vue({
     el: '#demo1',
@@ -109,6 +109,48 @@
           msg: "Bye"
         }
       }
+    }
+  });
+
+  demo6 = new Vue({
+    el: "#demo6",
+    data: {
+      title: 'demo6',
+      sub_title: 'Listening for Events',
+      n: 0
+    },
+    methods: {
+      onClick: function(e) {
+        console.log("" + e.targetVM);
+        return e.srcElement.innerHTML = "" + e.target.tagName + " tag is clicked.";
+      }
+    }
+  });
+
+  demo7 = new Vue({
+    el: "#demo7",
+    data: {
+      title: 'demo7',
+      sub_title: 'Invoke Handler with Expression',
+      items: [
+        {
+          text: 'one',
+          done: true
+        }, {
+          text: 'two',
+          done: false
+        }
+      ]
+    },
+    methods: {
+      toggle: function(item) {
+        return item.done = !item.done;
+      }
+    },
+    el: "#demo8",
+    data: {
+      title: 'demo8',
+      sub_title: 'The Special Key Filter'
     }
   });
 

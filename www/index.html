@@ -52,6 +52,27 @@
         </li>
       </ul>
     </div>
+    <div id='demo6'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <a v-on='click: onClick '>Target a handler</a>
+      <br>
+      <a v-on='click: n++'>click-count : {{n}}</a>
+    </div>
+    <div id='demo7'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <ul>
+        <li v-on='click: toggle(this)' v-repeat='items'>
+          {{text}} - {{done}}
+        </li>
+      </ul>
+    </div>
+    <div id='demo8'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <input v-on='keyup:submit | key enter'>
+    </div>
     <script rel='javascript' src='javascripts/sample.js' type='text/javascript'></script>
   </body>
 </html>

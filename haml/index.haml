@@ -42,5 +42,26 @@
         %li{"v-repeat" => "objectValues"}
           {{$key}} : {{msg}}
 
+    #demo6
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %a{"v-on" => "click: onClick "} Target a handler
+      %br
+      %a{"v-on" => "click: n++"} click-count : {{n}}
+
+    #demo7
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %ul
+        %li{"v-repeat" => "items", "v-on" => "click: toggle(this)"}
+          {{text}} - {{done}}
+
+    #demo8
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %input{"v-on" => "keyup:submit | key enter"}
+
+
+
 
     %script{rel: "javascript", src: "javascripts/sample.js", type: "text/javascript"}

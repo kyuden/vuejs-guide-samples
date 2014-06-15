@@ -107,4 +107,41 @@ demo5 = new Vue
       two:
         msg: "Bye"
 
+#demo6
+demo6 = new Vue
+  el: "#demo6"
+  data:
+    title: 'demo6'
+    sub_title: 'Listening for Events'
+    n: 0
+  methods:
+    onClick: (e) ->
+      console.log("#{e.targetVM}")
+      e.srcElement.innerHTML =
+        "#{e.target.tagName} tag is clicked."
+
+#demo7
+demo7 = new Vue
+  el: "#demo7"
+  data:
+    title: 'demo7'
+    sub_title: 'Invoke Handler with Expression'
+    items: [
+      {
+        text: 'one', done: true
+      }
+      {
+        text: 'two', done: false
+      }
+    ]
+  methods:
+    toggle: (item) ->
+      item.done = !item.done
+
+#demo8
+  el: "#demo8"
+  data:
+    title: 'demo8'
+    sub_title: 'The Special Key Filter'
+
 
