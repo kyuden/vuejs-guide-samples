@@ -1,0 +1,46 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "UTF-8"}
+    %link{href: "stylesheets/style.css", rel: "stylesheet", type: "text/css"}/
+    %script{src: "../bower_components/vue/dist/vue.js"}
+  %body
+    #demo1
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %ul
+        %li{class: "{{done ? 'done' : ''}}", "v-on" => "click: done = !done", "v-repeat" => "todos"}
+          {{content}}
+    #demo2
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %div{"v-demo2" => "Blue : msg"}
+
+    #demo3
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %div{"v-demo3-1" => "foo : title"}
+      %div{"v-demo3-2" => "bar : title"}
+      %div{"v-demo3-2" => "1 : title"}
+        demo3-2ディレクレブが値を上書きするので出力されない
+
+    #demo4
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %div{"v-text" => "name | reversename"}
+
+    #demo5
+      %h1 {{title | uppercase}}
+      %h3 {{sub_title | uppercase}}
+      %ul
+        %li{"v-repeat" => "items", class: "item-{{$index}}"}
+          {{$index}} - {{parentMsg}} {{childMsg}}
+        %li{"v-repeat" => "item : items", class: "item-{{$index}}"}
+          {{$index}} - {{parentMsg}} {{item.childMsg}}
+        %li{"v-repeat" => "premitiveValues"}
+          {{$key}} : {{$value}}
+        %li{"v-repeat" => "objectValues"}
+          {{$key}} : {{msg}}
+
+
+    %script{rel: "javascript", src: "javascripts/sample.js", type: "text/javascript"}

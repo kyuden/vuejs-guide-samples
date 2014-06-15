@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <link href='stylesheets/style.css' rel='stylesheet' type='text/css'>
+    <script src='../bower_components/vue/dist/vue.js'></script>
+  </head>
+  <body>
+    <div id='demo1'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <ul>
+        <li class="{{done ? 'done' : ''}}" v-on='click: done = !done' v-repeat='todos'>
+          {{content}}
+        </li>
+      </ul>
+    </div>
+    <div id='demo2'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <div v-demo2='Blue : msg'></div>
+    </div>
+    <div id='demo3'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <div v-demo3-1='foo : title'></div>
+      <div v-demo3-2='bar : title'></div>
+      <div v-demo3-2='1 : title'>
+        demo3-2ディレクレブが値を上書きするので出力されない
+      </div>
+    </div>
+    <div id='demo4'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <div v-text='name | reversename'></div>
+    </div>
+    <div id='demo5'>
+      <h1>{{title | uppercase}}</h1>
+      <h3>{{sub_title | uppercase}}</h3>
+      <ul>
+        <li class='item-{{$index}}' v-repeat='items'>
+          {{$index}} - {{parentMsg}} {{childMsg}}
+        </li>
+        <li class='item-{{$index}}' v-repeat='item : items'>
+          {{$index}} - {{parentMsg}} {{item.childMsg}}
+        </li>
+        <li v-repeat='premitiveValues'>
+          {{$key}} : {{$value}}
+        </li>
+        <li v-repeat='objectValues'>
+          {{$key}} : {{msg}}
+        </li>
+      </ul>
+    </div>
+    <script rel='javascript' src='javascripts/sample.js' type='text/javascript'></script>
+  </body>
+</html>
