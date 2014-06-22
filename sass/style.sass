@@ -3,3 +3,16 @@ body
 
 li.done
   text-decoration: line-through
+
+
+.msg
+  transition: all .3s ease
+  height: 30px
+  padding: 10px
+  background-color: #eee
+  overflow: hidden
+
+.msg.v-enter, .msg.v-leave
+  height: 0
+  padding: 0 10px
+  opacity: 0
