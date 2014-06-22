@@ -1,10 +1,40 @@
 (function() {
-  new Vue({
+  var app, filters;
+
+  filters = {
+    all: function() {
+      return true;
+    },
+    active: function(todo) {
+      return !todo.completed;
+    },
+    completed: function() {
+      return todo.completed;
+    }
+  };
+
+  app = new Vue({
     el: "#todoapp",
     data: {
       todos: [],
       newTodo: "",
-      editedTodo: null
+      editedTodo: null,
+      filter: 'all'
+    },
+    computed: {
+      remaining: function() {
+        return this.todos.filter(filters.active).length;
+      },
+      allDone: {
+        $get: function() {
+          return this.remaining === 0;
+        },
+        $set: function(value) {
+          return this.todos.forEach(function(todo) {
+            return todo.completed = value;
+          });
+        }
+      }
     },
     methods: {
       addTodo: function() {
@@ -37,5 +67,7 @@
       }
     }
   });
+
+  app.filters = filters;
 
 }).call(this);

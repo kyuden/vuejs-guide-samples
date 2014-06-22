@@ -12,7 +12,7 @@
         <input placeholder='What needs to be done?' v-model='newTodo' v-on='keyup:addTodo | key enter'>
       </header>
       <section id='main'>
-        <input type='checkbox'>
+        <input type='checkbox' v-model='allDone'>
         <ul>
           <li v-class='editing: this == editedTodo, completed: completed' v-repeat='todos'>
             <div class='view'>
@@ -20,7 +20,16 @@
               <label v-on='click: editTodo(this)' v-text='title'></label>
               <button v-on='click:deleteTodo(this)'></button>
             </div>
-            <input class='edit' v-model='title' v-on='keyup:doneEdit(this) | key enter, keyup:cancelEdit(this) | key etc'>
+            <input class='edit' v-model='title' v-on='keyup:doneEdit(this) | key enter, keyup:cancelEdit(this) | key esc, blur: cancelEdit(this)'>
+          </li>
+        </ul>
+      </section>
+      <section id='fotter'>
+        <ul>
+          <li>
+            <a href='#/all' v-class='selected:filter==all'>ALL</a>
+            <a href='#/active' v-class='selected:filter==active'>active</a>
+            <a href='#/completed' v-class='selected:filter==completed'>completed</a>
           </li>
         </ul>
       </section>

@@ -1,9 +1,28 @@
-new Vue
+filters =
+  all: ->
+    true
+  active: (todo) ->
+    !todo.completed
+  completed: ->
+    todo.completed
+
+app = new Vue
   el: "#todoapp"
   data:
     todos: []
     newTodo: ""
     editedTodo: null
+    filter: 'all'
+  computed:
+    remaining: ->
+      this.todos.filter(filters.active).length
+    allDone:
+      $get: ->
+        this.remaining == 0
+      $set: (value) ->
+        this.todos.forEach (todo) ->
+          todo.completed = value
+
   methods:
     addTodo: ->
       value = this.newTodo && this.newTodo.trim()
@@ -29,7 +48,7 @@ new Vue
     deleteTodo: (todo) ->
       this.todos.$remove(todo.$data)
 
-
+app.filters = filters
 
 
 
